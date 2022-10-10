@@ -1,0 +1,117 @@
+:root {
+  --header-bg-color: #94a3b8;
+  --sidebar-bg-color: #d1d5db;
+  --main-bg-color: #f1f5f9;
+  --white-color: #f3f3f3;
+  --gray-color: #808080;
+  --button-bg-color: #0ea5e9;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+.container {
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: repeat(4, 1fr);
+  display: grid;
+  height: 100vh;
+}
+
+.header {
+  grid-column: 2 / 3;
+  background-color: var(--header-bg-color);
+  box-shadow: 3px 4px 8px 0px var(--gray-color);
+  z-index: 1;
+}
+
+.sidebar {
+  grid-column: 1 / 2;
+  grid-row: 1 / 5;
+  display: grid;
+  grid-template-rows: 2fr 4fr 2fr;
+  background: var(--sidebar-bg-color);
+}
+
+.sidebar-logo {
+  display: flex;
+  justify-content: center;
+}
+
+.sidebar-logo img {
+  width: 120px;
+}
+
+
+.sidebar-tools {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: repeat(4, 1fr);
+  align-items: center;
+  gap: 10px;
+  justify-items: center;
+}
+
+.sidebar-tools input, .sidebar-button button, .sidebar-tools label {
+  font-weight: bold;
+  border: none;
+}
+
+.sidebar-tools label {
+  justify-self: start;
+  padding-left: 20px;
+}
+
+.sidebar-tools label[for="read"] {
+  padding: 0;
+}
+
+.sidebar-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar-button button {
+  padding: 10px 40px;
+  background-color: var(--button-bg-color);
+  border-radius: 5px;
+}
+
+.sidebar-tools input[type="text"], .sidebar-tools input[type="number"] {
+  background-color: var(--white-color);
+  justify-self: start;
+  width: 180px;
+  border-radius: 5px;
+  padding: 5px 5px;
+}
+
+.sidebar-tools input[type="checkbox"] {
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 5px;
+  border: 2px solid red;
+}
+
+.sidebar-tools input[type="checkbox"]:checked {
+  border: 2px solid green;
+}
+
+.sidebar-tools input[type="checkbox"]:checked::after {
+  position: relative;
+  top: -10px;
+  right: 6px;
+  font-size: 28px;
+  content: '✔️';
+}
+
+.main {
+  grid-column: 2 / 3;
+  grid-row: 2 / 5;
+  background-color: var(--main-bg-color);
+}
+
