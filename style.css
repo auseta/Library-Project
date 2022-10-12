@@ -1,11 +1,9 @@
 :root {
   --header-bg-color: #98aecc;
-  --sidebar-bg-color: #d1d5db;
-  --main-bg-color: #f1f5f9;
+  --main-bg-color: #d1d5db;
   --white-color: #f3f3f3;
   --gray-color: #808080;
   --button-bg-color: #0ea5e9;
-  --card-bg-color: #9ca3af;
   --orange-button-color: #fd8300;
   --orange-hover-button-color: #cf7515;
   --orange-active-button-color: #985711;;
@@ -26,11 +24,11 @@
   height: 100vh;
 }
 
-.book-form button:hover, .header button:hover {
+.book-form button:hover, .header button:hover, .card button:hover {
   background-color: var(--orange-hover-button-color);
 }
 
-.book-form button:active, .header button:active {
+.book-form button:active, .header button:active, .card button:active {
   background-color: var(--orange-active-button-color);
 }
 
@@ -63,7 +61,7 @@
 .book-form button:nth-child(1) {
   padding: 0;
   padding: 5px 15px;
-  background-color: var(--card-bg-color);
+  background-color: var(--main-bg-color);
   justify-self: end;
   margin-right: 25px;
 }
@@ -102,7 +100,7 @@
   border-bottom: 1px solid black;
 }
 
-.book-info input[type="checkbox"] {
+.book-info input[type="checkbox"], .card-status input {
   appearance: none;
   width: 25px;
   height: 25px;
@@ -111,11 +109,11 @@
   cursor: pointer;
 }
 
-.book-info input[type="checkbox"]:checked {
+.book-info input[type="checkbox"]:checked, .card-status input:checked {
   border: 2px solid green;
 }
 
-.book-info input[type="checkbox"]:checked::after {
+.book-info input[type="checkbox"]:checked::after, .card-status input:checked::after {
   position: relative;
   top: -10px;
   right: 6px;
@@ -171,42 +169,68 @@
   grid-row: 2 / 6;
   gap: 50px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 200px));
+  grid-template-columns: repeat(auto-fit, minmax(100px, 350px));
   padding: 25px;
   background-color: var(--main-bg-color);
 }
 
 .card {
+  width: 400px;
+  height: 200px;
   display: grid;
-  justify-items: end;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 6fr 1fr;
-  width: 200px;
-  height: 250px;
+  grid-template-rows: 1fr 3fr 2fr;
+  background-color: var(--white-color);
+  box-shadow: 2px 2px 8px 1px var(--gray-color);
+  border-left: 8px solid var(--orange-button-color);
   border-radius: 5px;
-  padding: 10px;
-  background-color: var(--card-bg-color);
 }
 
-.delete-card button {
+.card button {
+  justify-self: end;
+  background-color: var(--orange-button-color);
+  margin-top: 10px;
+  margin-right: 15px;
   height: 25px;
-  border: none;
-  border-radius: 5px;
+  width: 25px;
+  border-radius: 50%;
+  font-weight: bold;
   cursor: pointer;
-}
-
-.delete-card button img {
-  width: 24px;
 }
 
 .card-info {
   display: grid;
+  padding-left: 25px;
   grid-template-rows: repeat(3, 1fr);
-  justify-self: center;
-  justify-items: center;
-  align-items: center;
+}
+
+.card-info h3 {
+  font-size: 16px;
 }
 
 .card-status {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  padding-left: 25px;
+  justify-self: start;
+  justify-items: start;
+  align-items: center;
+}
+
+.card-status label {
+  font-weight: bold;
   justify-self: center;
+  padding-bottom: 4px;
+}
+
+.card-status input {
+  width: 20px;
+  height: 20px;
+  margin-bottom: 4px;
+}
+
+.card-status input:checked::after {
+  font-size: 18px;
+  top: -5px;
+  left: -2px;
 }
