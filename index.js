@@ -70,8 +70,8 @@ function createCardBook(book) {
       <span>${book.pages} pages</span>
     </div>
     <div class="card-status">
-      <input type="checkbox" ${book.read === true ? "checked" : ""} name="card-status" id="card-status" value="${book.read === true ? "readed" : "not-readed"}" onclick="changeStatus(event)">
-      <label for="card-status">${book.read === true ? "Readed" : "Not Readed"}</label>
+      <input type="checkbox" ${book.read === true ? "checked" : ""} name="card-status" id="card-status-${index}" value="${book.read === true ? "readed" : "not-readed"}" onclick="changeStatus(event)">
+      <label for="card-status-${index}">${book.read === true ? "Readed" : "Not Readed"}</label>
     </div>
   `
   mainContainer.appendChild(cardContainer)
