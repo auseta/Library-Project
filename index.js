@@ -44,13 +44,15 @@ function changeStatus(e) {
   }
 }
 
-// constructor function
-function Book (title, auth, pages) {
-  this.title = title;
-  this.auth = auth;
-  this.pages = pages;
-  this.id = 0;
-  this.read = false
+// class
+class Book {
+  constructor(title, auth, pages) {
+    this.title = title;
+    this.auth = auth;
+    this.pages = pages
+  }
+  id = 0
+  read = false
 }
 
 // main functions
